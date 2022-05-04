@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Rockwell';
+    src: local('Rockwell Regular'), local('Rockwell-Regular'),
+        url('RockwellStd.woff2') format('woff2'),
+        url('RockwellStd.woff') format('woff'),
+        url('RockwellStd.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
