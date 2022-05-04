@@ -132,8 +132,99 @@ header {
   right: 0;
   left: 0;
   z-index: 999;
+  transition: all 300ms ease-in-out;
 }
 
+header.sticky {
+  background-color: var(--primary);
+  padding: 1.5rem 0;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+.navbar-toggler svg {
+  width: 45px;
+  height: 45px;
+  color: #FFF;
+}
+.navbar .navbar-collapse {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  color: black;
+  display: block !important;
+  transition: all 300ms ease-in-out;
+  height: 0;
+}
+
+/* .navbar .navbar-collapse.show {
+  z-index: 100;
+} */
+
+.navbar .navbar-collapse::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 100;
+  display: none;
+}
+
+.navbar .navbar-collapse.show::after {
+  display: block;
+}
+
+
+.navbar .navbar-collapse .navbar-nav{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: auto;
+  background-color: white;
+  margin-left: auto;
+  position: relative;
+  z-index: 9999;
+  height: 100vh;
+  transform: translateX(600px);
+  transition: all 300ms ease-in-out
+}
+
+.navbar .navbar-collapse.show .navbar-nav {
+  transform: translateX(0);
+    transition: all 300ms ease-in-out;
+}
+
+.navbar .navbar-collapse .navbar-nav li{
+  margin-bottom: 20px;
+}
+
+.navbar #close-icon {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.navbar-expand-lg .navbar-toggler {
+  display: block !important;
+}
+
+.collapsing {
+  height: 100% !important;
+  
+}
 /* Home */
 #home {
   position: relative;
@@ -208,15 +299,24 @@ header {
 /* Download */
 #download {
   text-align: center;
-  padding: 50PX 0;
+  padding: 50px 0;
+  margin-top: 80px;
   background-image: url('../images/download-bg.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
 
+#download .content {
+  padding: 0 40px;
+}
+
 #download h2, #download p {
   color: white;
   margin-bottom: 25px;
+}
+
+#download p {
+  font-size: 16px;
 }
 
 /* Call to download */
@@ -225,6 +325,39 @@ header {
   background-color: var(--accent);
 }
 
+#call-to-download .content{
+  padding: 0 40px;
+}
+
+#call-to-download p{
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Rockwell';
+  text-align: center;
+}
+
+#call-to-download .btn a{
+  color: var(--primary);
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px 25px;
+}
+
+/* Footer */
+footer {
+  padding: 80px 0 40px;
+}
+
+footer p, footer p a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #cacaca;
+  margin-top: 50px;
+}
 /*  Screens larger than mobile */
 @media screen and (min-width: 640px) {
 
@@ -247,6 +380,14 @@ header {
 
   header {
   padding: 2.778rem 0;
+  }
+
+  header.sticky {
+    padding: 1rem 0
+  }
+
+  .navbar .navbar-collapse .navbar-nav {
+    max-width: 400px;
   }
 
   #home p {
@@ -291,12 +432,36 @@ header {
     margin-top: 150px;
   }
 
-    #download {
-    padding: 70PX 0;
+  #download {
+    padding: 70px 0;
+    margin-top: 120px;
+  }
+
+  #download .content {
+  padding: 0;
+  }
+
+  #download p {
+    font-size: 18px;
   }
 
   #call-to-download {
-  padding: 40px 0;
+    padding: 40px 0;
+  }
+  
+  #call-to-download .content{
+    padding: 0 40px;
+  }
+
+  #call-to-download p{
+    font-size: 28px;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  footer p {
+  margin-top: 70px;
+  font-size: 18px;
   }
 
 }
@@ -313,7 +478,6 @@ header {
     width: 600px;
     bottom: -80px;
     height: 600px;
-    /* background-color: red; */
     background-image: url('../images/player.png');
     background-size: auto;
     background-repeat: no-repeat;
@@ -327,7 +491,6 @@ header {
     width: 600px;
     bottom: -100px;
     height: 600px;
-    /* background-color: red; */
     background-image: url('../images/players.png');
     background-size: auto;
     background-repeat: no-repeat;

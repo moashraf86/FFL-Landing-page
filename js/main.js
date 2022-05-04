@@ -1,0 +1,26 @@
+// close menu with close icon
+document.querySelector('#close-icon').addEventListener('click', function(e) {
+  document.querySelector('#navbarNav').classList.remove('show')
+});
+
+document.querySelector('.navbar-collapse').addEventListener('click', function(e) {
+  this.classList.remove('show')
+});
+
+document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+  link.addEventListener('click', function() {
+    document.querySelector('#navbarNav').classList.remove('show')
+  })
+})
+//stop propagation on menu area
+document.querySelector('.navbar-collapse .navbar-nav').addEventListener('click', function(e) {
+  e.stopPropagation()
+});
+
+window.onscroll = function() {
+  if(this.scrollY > 20) {
+    document.querySelector('header').classList.add('sticky')
+  } else {
+    document.querySelector('header').classList.remove('sticky')
+  }
+}
