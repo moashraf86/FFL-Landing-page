@@ -13,6 +13,11 @@ document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
   })
 })
 
+//hide menu while resizing the window
+window.onresize = function() {
+  document.querySelector('#navbarNav').classList.remove('show');
+}
+
 //stop propagation on menu area
 document.querySelector('.navbar-collapse .navbar-nav').addEventListener('click', function(e) {
   e.stopPropagation()
