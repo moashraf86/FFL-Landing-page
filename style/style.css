@@ -329,7 +329,7 @@ header.sticky {
   position: relative;
   z-index: 9999;
   height: 100vh;
-  transform: translateX(120%);
+  transform: translateX(130%);
   transition: all 300ms ease-in-out
 }
 
